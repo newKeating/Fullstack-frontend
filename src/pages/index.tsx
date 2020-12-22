@@ -18,7 +18,6 @@ const Index = () => {
   if (!data && !fetching) {
     return <div>query failed</div>;
   }
-  console.log("data", data);
 
   return (
     <Layout>
@@ -37,7 +36,8 @@ const Index = () => {
         <Stack spacing={8} mt={4}>
           {data!.posts.posts.map((post) => (
             <Box key={post.id} p={4} shadow="md" borderWidth="1px">
-              <Heading fontSize="xl">{post.title}</Heading>
+              <Heading fontSize="xl">{post.title}</Heading>{" "}
+              <Text>posted by {post.creator.username}</Text>
               <Text mt={4}>{post.textSnippet}</Text>
             </Box>
           ))}
